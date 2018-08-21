@@ -7,4 +7,20 @@
 // To reference this file, add <%= javascript_pack_tag 'application' %> to the appropriate
 // layout file, like app/views/layouts/application.html.erb
 
-console.log('Hello World from Webpacker')
+console.log("Hello World from Webpacker");
+
+if ("serviceWorker" in navigator) {
+  navigator.serviceWorker
+    .register("/sw.js")
+    .then(function(registration) {
+      // 登録成功
+      console.log(
+        "ServiceWorker registration successful with scope: ",
+        registration.scope
+      );
+    })
+    .catch(function(err) {
+      // 登録失敗 :(
+      console.log("ServiceWorker registration failed: ", err);
+    });
+}
