@@ -24,3 +24,13 @@ if ("serviceWorker" in navigator) {
       console.log("ServiceWorker registration failed: ", err);
     });
 }
+
+window.onload = () => {
+  const element = document.querySelector("#content");
+  for (let i = 1; i <= 100; i++) {
+    const image = document.createElement("img");
+    image.setAttribute("src", `https://robohash.org/${i}.png?size=100x100`);
+
+    element.appendChild(image);
+  }
+};
